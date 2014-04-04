@@ -313,7 +313,7 @@ class RennClientBase {
 		// $response = $this->http ( $url, $httpMethod, null, $headers );
 		// }
 		// }
-		
+		echo $response;
 		$result = json_decode ( $response, true );
 		if (isset ( $result ['error'] ) && $result ['error']) {
 			throw new ServerException ( $result ['error'] ['code'], $result ['error'] ['message'] );
