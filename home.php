@@ -7,9 +7,9 @@
 <body>
 	<div class="container">
 		<?php
-			$xn_sig_added = $_GET["xn_sig_added"];
-			echo $xn_sig_added;
-			?>
+			require_once("./appInit.php");
+			RennAppClient::auth();
+		?>
 	</div>
 </body>
 </html>
