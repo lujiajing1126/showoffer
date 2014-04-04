@@ -14,4 +14,8 @@ var uiOpts = {
     },
     onFailure: function(r) {}
 };
-Renren.ui(uiOpts);
+$(document).ready(function() {
+    $(document).on('click.auth', '.btn', function() {
+        Renren.ui(uiOpts);
+    });
+});
