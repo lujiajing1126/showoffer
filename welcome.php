@@ -6,5 +6,6 @@
 </head>
 <body>
 	<h4>Welcome To Our App</h4>
+	<script type="text/javascript" src="./assets/scripts/renren.js"></script>
 </body>
 </html>
