@@ -259,9 +259,9 @@ class RennClientBase {
 		if ($this->accessToken->type == TokenType::Bearer) {
 			$schema = "https";
 		}
-		
 		// path & query
 		$url = $schema . "://" . self::API_HOST . $path;
+		echo $url;
 		$pathAndQuery = $path;
 		if (! empty ( $queryParams )) { // 注意：在get请求的url中，有参数有'?'，无参数无'?'
 			$query = http_build_query ( $queryParams );
