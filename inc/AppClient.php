@@ -7,10 +7,11 @@
 		public static function getRennClient()  {
 			if(!self::$client instanceof RennClientBase)
 				self::$client = new RennClientBase (self::API_KEY, self::SECRET_KEY);
-			return self:$client;
+			return self::$client;
 		}
 		public static function auth()  {
 			$xn_sig_added = $_GET["xn_sig_added"];
+			echo $xn_sig_added;
 			if($xn_sig_added==0)
 			{
 				//跳转到授权页面
