@@ -6,7 +6,7 @@
 		private static $client = null;
 		public static function getRennClient()  {
 			if(!self::$client instanceof RennClientBase)
-				self::$client = new RennClientBase (self::API_KEY, self::SECRET_KEY);
+				self::$client = new RennClient(self::API_KEY, self::SECRET_KEY);
 			return self::$client;
 		}
 		public static function auth()  {
@@ -21,8 +21,9 @@
 				echo "</script>";
 			} else {
 				$session_key = $_GET["xn_sig_session_key"];
+				$access_token = $_GET["access_token"];
 				$_SESSION["session_key"]=$session_key;
-				echo $_SESSION["session_key"];
+				$_SESSION["access_token"]=$access_token;
 			}
 		}
 	}

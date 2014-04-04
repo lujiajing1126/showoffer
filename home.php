@@ -1,3 +1,6 @@
+<?php
+require_once("./appInit.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +10,14 @@
 <body>
 	<div class="container">
 		<?php
-			require_once("./appInit.php");
 			RennAppClient::auth();
+			$client = RennAppClient->getRennClient();
+			$client->authWithToken($_SESSION["access_token"]);
+			$user_service = $client->getUserService();
+			$user = $user_service->getUserLogin();
 		?>
+		<img src="<?php echo $user['avatar'][1]['url'];?>" title="头像" alt="头像"
+							border="0" />
 	</div>
 </body>
 </html>
