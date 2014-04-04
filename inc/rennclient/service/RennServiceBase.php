@@ -7,6 +7,7 @@ class RennServiceBase {
 	 * 构造函数
 	 */
 	function __construct($client, $accessToken) {
+		echo "construct Service";
 		$this->client = $client;
 		$this->accessToken = $accessToken;
 	}
