@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<title>晒你的Offer~</title>
-	<link rel="stylesheet" href="./assets/stylesheets/bootstrap.min.css">
+	<!--<link rel="stylesheet" href="./assets/stylesheets/bootstrap.min.css">-->
 </head>
 <body>
 	<h4>Welcome To Our App</h4>
