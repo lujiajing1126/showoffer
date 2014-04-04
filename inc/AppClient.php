@@ -5,13 +5,14 @@
 		const SECRET_KEY = "4af113dedba04926a6ca15fbf539ace5";
 		private static $client = null;
 		public static function getRennClient()  {
-			if(!self::$client instanceof RennClientBase)
+			if(!self::$client instanceof RennClient)  {
+				echo self::API_KEY;
 				self::$client = new RennClient(self::API_KEY, self::SECRET_KEY);
+			}
 			return self::$client;
 		}
 		public static function auth()  {
 			$xn_sig_added = $_GET["xn_sig_added"];
-			echo $xn_sig_added;
 			if($xn_sig_added==0)
 			{
 				//跳转到授权页面

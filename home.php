@@ -14,6 +14,7 @@ require_once("./appInit.php");
 			$client = RennAppClient::getRennClient();
 			echo $_SESSION["access_token"];
 			$client->authWithToken($_SESSION["access_token"]);
+			echo "test~";
 			$user = $client->getUserService()->getUserLogin();
 			var_dump($user);
 		?>
