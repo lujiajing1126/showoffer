@@ -12,10 +12,10 @@ require_once("./appInit.php");
 		<?php
 			RennAppClient::auth();
 			$client = RennAppClient::getRennClient();
-			echo $_SESSION["access_token"];
 			$client->authWithToken($_SESSION["access_token"]);
+			$user_service = $client->getUserService()
 			echo "test~";
-			$user = $client->getUserService()->getUserLogin();
+			$user = $user_service->getUserLogin();
 			var_dump($user);
 		?>
 		<img src="

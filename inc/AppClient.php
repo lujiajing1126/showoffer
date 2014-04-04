@@ -6,7 +6,6 @@
 		private static $client = null;
 		public static function getRennClient()  {
 			if(!self::$client instanceof RennClient)  {
-				echo self::API_KEY;
 				self::$client = new RennClient(self::API_KEY, self::SECRET_KEY);
 			}
 			return self::$client;
