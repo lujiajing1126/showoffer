@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<title>晒你的Offer~</title>
+	<title>晒你的Offer~ - Welcome</title>
 	<!--<link rel="stylesheet" href="./assets/stylesheets/bootstrap.min.css">-->
 </head>
 <body>
