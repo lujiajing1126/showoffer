@@ -108,6 +108,7 @@ class UserService extends RennServiceBase {
              $params = array();
              $bodyParams = array();
              $fileParams = array();
+			echo "get User Info";
              return $this->client->execute('/v2/user/login/get', 'GET', $params, $bodyParams, $fileParams);
          } 
 }
