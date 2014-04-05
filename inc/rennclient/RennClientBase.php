@@ -270,7 +270,7 @@ class RennClientBase {
 				$pathAndQuery = $path . '?' . $query;
 			}
 		}
-		echo $url;
+
 		// headers
 		$headers = array ();
 		
@@ -298,7 +298,7 @@ class RennClientBase {
 				$response = $this->http ( $url, $httpMethod, null, $headers );
 			}
 		}
-		print_r($headers);
+
 		// // body
 		// if (isset ( $fileParams )) {
 		// // body里的参数和文件参数都用multipart方式传输
@@ -313,7 +313,7 @@ class RennClientBase {
 		// $response = $this->http ( $url, $httpMethod, null, $headers );
 		// }
 		// }
-		echo $response;
+
 		$result = json_decode ( $response, true );
 		if (isset ( $result ['error'] ) && $result ['error']) {
 			throw new ServerException ( $result ['error'] ['code'], $result ['error'] ['message'] );
