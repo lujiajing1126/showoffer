@@ -15,8 +15,12 @@ require_once("./appInit.php");
 			$accessToken = new AccessToken(TokenType::Bearer, $_SESSION["access_token"], null);
 			$client->authWithToken($accessToken);
 			$user_service = $client->getUserService();
+			try  {
 			$user = $user_service->getUserLogin();
-			var_dump($user);
+			}
+			catch(Exception $e)  {
+				echo $e->getMessage();
+			}
 		?>
 		<img src="
 		<?php 
