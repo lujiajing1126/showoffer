@@ -15,7 +15,7 @@ var uiOpts = {
     onFailure: function(r) {}
 };
 $(document).ready(function() {
-    $(document).on('click.auth', '.btn', function() {
+    $(document).on('click.auth', '#login', function() {
         Renren.ui(uiOpts);
     });
 });
