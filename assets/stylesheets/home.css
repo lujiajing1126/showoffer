@@ -1,0 +1,51 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+body {
+	width: 800px;
+	height: 600px;
+}
+
+.selectSchools a {
+	margin-right: 50px;
+}
+.selectSchools a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+div,mySchools {
+	margin-bottom: 20px;
+}
+ul.selectedSchools {
+	padding: 10px;
+	border: dashed;
+	text-decoration: none;
+	list-style: none;
+}
+
+ul.selectedSchools li {
+	display: inline-block;
+	width: 55px;
+	height: 25px;
+	border-radius: 5px;
+	border:solid 1px;
+	background-color: #f4e219;
+	margin-right: 20px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+ul.selectedSchools li.del {
+	width: 70px;
+	background-color: yellow;
+	text-align: left;
+}
+
+ul.selectedSchools li span {
+	display: none;
+}
+
+ul.selectedSchools li.del span {
+	display: inline;
+}
