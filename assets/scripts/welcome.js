@@ -7,7 +7,8 @@ var uiOpts = {
     display: "iframe",
     params: {
         "response_type": "token",
-        "client_id": appInfo.APPID
+        "client_id": appInfo.APPID,
+        "scope":'create_album photo_upload'
     },
     onSuccess: function(r) {
         top.location = "http://apps.renren.com/" + appInfo.APPNAME + "/home.php";

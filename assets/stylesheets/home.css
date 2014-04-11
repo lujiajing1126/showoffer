@@ -26,20 +26,21 @@ ul.selectedSchools {
 
 ul.selectedSchools li {
 	display: inline-block;
-	width: 55px;
-	height: 25px;
+	width: 115px;
+	height: 65px;
 	border-radius: 5px;
 	border:solid 1px;
 	background-color: #f4e219;
 	margin-right: 20px;
+	margin-bottom: 20px;
 	text-align: center;
 	vertical-align: middle;
+	cursor: pointer;
+	position: relative;
 }
 
 ul.selectedSchools li.del {
-	width: 70px;
-	background-color: yellow;
-	text-align: left;
+	background-color: rgb(86, 247, 199);
 }
 
 ul.selectedSchools li span {
@@ -48,4 +49,8 @@ ul.selectedSchools li span {
 
 ul.selectedSchools li.del span {
 	display: inline;
+	position: absolute;
+	top: -9px;
+	left: -10px;
+	font-size: 20px;
 }
