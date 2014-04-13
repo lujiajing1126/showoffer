@@ -1,25 +1,27 @@
 <?php
 require_once("./appInit.php");
-require_once(APP_INC."gd2helper.php");
+require_once(APP_INC."list".SUF);
+require_once(APP_INC."gd2helper".SUF);
+require_once(APP_INC."offer.class".SUF);
 // Auth
-
+$username = '小灰灰';
 // Verify Token
 
 // Generate Image
-$width = 1200;
-$height = 800;
-$img = imagecreatefromjpeg('./assets/images/2.jpg');
-$font_path = './assets/fonts/FelixTitling.ttf';
-$font_path_zhcn = './assets/fonts/msyh.ttf';
-$font_size = 20;
-
-$logo1 = imagecreatefrompng('./assets/images/Logo/1-10/California Institute of Technology.png');
-$color = imagecolorallocate($img,75,53,53);
-imagecopy($img,$logo1,60,100,0,0,100,100);
-imagettftextjustified($img,$font_size,0,210,120,$color,$font_path,'California Institute of Technology',350,3,2);
-imagettftext($img, 20, 0, 20, 45, $color, $font_path_zhcn, "小灰灰的Offer墙");
-header('Content-Type: image/png');
-imagepng($img);
-imagedestroy($img);
-imagedestroy($logo1);
-?>
+isset($_GET["schools"]) && $schools = $_GET["schools"];
+isset($_GET["name"]) && $username = $_GET["name"];
+$schools_array = explode('-', $schools);
+if(count($schools_array) > 10)
+	die("非法的请求");
+sort($schools_array,SORT_NUMERIC);
+$token = md5(implode('-', $schools_array));
+$myList = array();
+foreach($schools_array as $key => $value) {
+	$myList[] = $list[$value];
+}
+if(checkfiles($myList)) {
+	$img = new Offer($token,$myList,$username);
+	$img->render_images($schools_array);
+}
+else
+	echo "非法的请求";

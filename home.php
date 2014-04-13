@@ -19,17 +19,16 @@ require_once("./appInit.php");
 			$client->authWithToken($accessToken);
 			$user_service = $client->getUserService();
 			try  {
-			$user = $user_service->getUserLogin();
+				$user = $user_service->getUserLogin();
 			}
 			catch(Exception $e)  {
 				echo $e->getMessage();
 			}
 		?>
-		<img src="
+		<h4
 		<?php 
-			echo $user['avatar'][1]['url'];
-		?>" title="头像" alt="头像" border="0" />
-		<img src="generate.php" style="width:100px">
+			echo "你好，".$user['name'].",欢迎使用留学党晒Offer~";
+		?></h4>
 		<div id="mySchools">
 			<h3>我拿到了这些学校的Offer：</h3>
 			<ul class="selectedSchools"></ul>
@@ -64,7 +63,7 @@ require_once("./appInit.php");
 			  </div>
 			</div>
 		</div>
-		<button>生成Offer~</button>
+		<button class="btn btn-primary submit">生成Offer~</button>
 	</div>
 	<script src="./assets/scripts/lib/jquery/jquery.min.js"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>

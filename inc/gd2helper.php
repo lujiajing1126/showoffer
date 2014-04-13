@@ -38,3 +38,16 @@ function imagettftextjustified(&$image, $size, $angle, $left, $top, $color, $fon
 	}
 	return true;
 }
+
+function checkfiles(array $list){
+	foreach($list as $key => $value) {
+		if(!file_exists("./assets/images/Logo/".$value.".png"))
+			return false;
+	}
+	return true;
+}
+
+function getPath($filename,$suffix='png') {
+	if(file_exists("./assets/images/Logo/".$filename.".".$suffix))
+		return "./assets/images/Logo/".$filename.".png";
+}
