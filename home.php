@@ -20,17 +20,18 @@ require_once("./appInit.php");
 			$user_service = $client->getUserService();
 			try  {
 				$user = $user_service->getUserLogin();
+				$_SESSION["SACH_USER_NAME"] = $user['name'];
 			}
 			catch(Exception $e)  {
 				echo $e->getMessage();
 			}
 		?>
-		<h4
+		<h4>
 		<?php 
 			echo "你好，".$user['name'].",欢迎使用留学党晒Offer~";
 		?></h4>
 		<div id="mySchools">
-			<h3>我拿到了这些学校的Offer：</h3>
+			<h5>我拿到了这些学校的Offer：</h5>
 			<ul class="selectedSchools"></ul>
 		</div>
 		<div id="schools">

@@ -61,7 +61,6 @@ $(function() {
 	    	query.push(v[1]);
     	});
     	query_string = query.join('-');
-		window.open("http://app.mysach.com/showoffer/generate.php?name=你的名字&schools="+query_string);
-		//window.location.href = "http://app.mysach.com/showoffer/generate.php?name=你的名字&schools="+query_string;
+		window.location.href = "http://app.mysach.com/showoffer/preview.php?schools="+query_string;
     });
 });

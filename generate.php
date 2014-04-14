@@ -10,6 +10,7 @@ $username = '小灰灰';
 // Generate Image
 isset($_GET["schools"]) && $schools = $_GET["schools"];
 isset($_GET["name"]) && $username = $_GET["name"];
+isset($_SESSION["SACH_USER_NAME"]) && $username = $_SESSION["SACH_USER_NAME"];
 $schools_array = explode('-', $schools);
 if(count($schools_array) > 10)
 	die("非法的请求");
