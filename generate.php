@@ -4,7 +4,7 @@ require_once(APP_INC."list".SUF);
 require_once(APP_INC."gd2helper".SUF);
 require_once(APP_INC."offer.class".SUF);
 // Auth
-$username = '小灰灰';
+$username = "小灰灰";
 // Verify Token
 
 // Generate Image

@@ -320,6 +320,62 @@ class RennClientBase {
 		}
 		return $result ['response'];
 	}
+	
+	
+	public function execute_png($path, $httpMethod, $queryParams, $bodyParams = null, $fileParams = null) {
+		$schema = "http";
+		// 组装URL
+		if ($this->accessToken->type == TokenType::Bearer) {
+			$schema = "https";
+		}
+		// path & query
+		$url = $schema . "://" . self::API_HOST . $path;
+		
+		$pathAndQuery = $path;
+		if (! empty ( $queryParams )) { // 注意：在get请求的url中，有参数有'?'，无参数无'?'
+			$query = http_build_query ( $queryParams );
+			if (!empty ($query)) {
+				$url = $url . '?' . $query;
+				$pathAndQuery = $path . '?' . $query;
+			}
+		}
+
+		// headers
+		$headers = array ();
+		
+		// authorization header
+		if ($this->accessToken) {
+			$headers [] = $this->getAuthorizationHeader ( $schema, $pathAndQuery, $httpMethod );
+		}
+		
+		// body
+		if (! empty ( $fileParams )) {
+			// body里的参数和文件参数都用multipart方式传输
+			$boundary = uniqid ( '------------------' );
+			$headers [] = "Content-Type: multipart/form-data; boundary=" . $boundary;
+			$body = $this->http_build_multipart_body_png ( $fileParams, $bodyParams, $boundary );
+			$response = $this->http ( $url, $httpMethod, $body, $headers );
+		} else {
+			$headers [] = 'Content-type: application/x-www-form-urlencoded';
+			if (isset ( $bodyParams )) {
+				$body = http_build_query ( $bodyParams, null, '&' );
+				$length = strlen ( $body );
+				$headers [] = 'Content-length: ' . $length;
+				$response = $this->http ( $url, $httpMethod, $body, $headers );
+			} else {
+				$headers [] = 'Content-length: 0';
+				$response = $this->http ( $url, $httpMethod, null, $headers );
+			}
+		}
+
+		$result = json_decode ( $response, true );
+		if (isset ( $result ['error'] ) && $result ['error']) {
+			throw new ServerException ( $result ['error'] ['code'], $result ['error'] ['message'] );
+		}
+		return $result ['response'];
+	}
+	
+	
 	private function http_build_multipart_body($fileParams, $textParams, $boundary) {
 		$MPboundary = '--' . $boundary;
 		$endMPboundary = $MPboundary . '--';
@@ -333,6 +389,32 @@ class RennClientBase {
 			$multipartbody .= $MPboundary . "\r\n";
 			$multipartbody .= 'Content-Disposition: form-data; name="' . $fileParamName . '"; filename="' . $filename . '"' . "\r\n";
 			$multipartbody .= "Content-Type: image/unknown\r\n\r\n";
+			$multipartbody .= $content . "\r\n";
+		}
+		
+		foreach ( $textParams as $param => $value ) {
+			$multipartbody .= $MPboundary . "\r\n";
+			$multipartbody .= 'Content-Disposition: form-data; name="' . $param . "\"\r\n\r\n";
+			$multipartbody .= $value . "\r\n";
+		}
+		
+		$multipartbody .= $endMPboundary;
+		return $multipartbody;
+	}
+	
+	private function http_build_multipart_body_png($fileParams, $textParams, $boundary) {
+		$MPboundary = '--' . $boundary;
+		$endMPboundary = $MPboundary . '--';
+		$multipartbody = '';
+		
+		foreach ( $fileParams as $fileParamName => $fileUrl ) {
+			$content = file_get_contents ( $fileUrl );
+			$array = explode ( '?', basename ( $fileUrl ) );
+			$filename = "MyOffer.png";
+			
+			$multipartbody .= $MPboundary . "\r\n";
+			$multipartbody .= 'Content-Disposition: form-data; name="' . $fileParamName . '"; filename="' . $filename . '"' . "\r\n";
+			$multipartbody .= "Content-Type: image/png\r\n\r\n";
 			$multipartbody .= $content . "\r\n";
 		}
 		

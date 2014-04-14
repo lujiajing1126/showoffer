@@ -61,6 +61,6 @@ $(function() {
 	    	query.push(v[1]);
     	});
     	query_string = query.join('-');
-		window.location.href = "http://app.mysach.com/showoffer/preview.php?schools="+query_string;
+		top.location = "http://apps.renren.com/showoffer/preview.php?schools="+query_string;
     });
 });

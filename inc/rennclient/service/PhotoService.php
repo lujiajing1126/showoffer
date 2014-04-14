@@ -22,7 +22,7 @@ class PhotoService extends RennServiceBase {
 	     if (isset($file)) {
 	             $fileParams ['file'] = $file;
 	     }
-             return $this->client->execute('/v2/photo/upload', 'POST', $params, $bodyParams, $fileParams);
+             return $this->client->execute_png('/v2/photo/upload', 'POST', $params, $bodyParams, $fileParams);
          } 
         /**
          * 获取某个用户某个相册里的某张照片
