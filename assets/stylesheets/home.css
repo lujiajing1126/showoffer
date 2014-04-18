@@ -5,8 +5,44 @@
 body {
 	width: 800px;
 	height: 600px;
+	background-image: url('../images/home_bg.jpg');
 }
 
+h4 {
+	font-weight: normal;
+	color: #fff;
+	font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
+}
+
+.container .submit {
+	width: 150px;
+	height: 38px;
+	position: relative;
+	top: -30px;
+	left: 570px;
+	border: 2px solid rgb(102, 102, 102);
+	color: rgb(102, 102, 102);
+	text-align: center;
+	font-size: 16px;
+	font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
+	cursor: pointer;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-moz-transition: border-color .26s,color .26s;
+	-o-transition: border-color .26s,color .26s;
+	transition: border-color .26s,color .26s;
+}
+.container .submit:hover {
+	border-color: #fff;
+	color: #fff;
+}
+.container .submit span {
+	line-height: 37px;
+	display: inline;
+	vertical-align: middle;
+	color: inherit;
+}
 .selectSchools a {
 	margin-right: 50px;
 }
@@ -14,33 +50,43 @@ body {
 	text-decoration: underline;
 	cursor: pointer;
 }
-div,mySchools {
-	margin-bottom: 20px;
+div#mySchools {
+	margin-top: -10px;
 }
 ul.selectedSchools {
-	padding: 10px;
-	border: dashed;
+	padding: 20px;
+	padding-left: 30px;
 	text-decoration: none;
 	list-style: none;
+	width: 725px;
+	height: 196px;
 }
 
 ul.selectedSchools li {
 	display: inline-block;
 	width: 115px;
 	height: 65px;
-	border-radius: 5px;
-	border:solid 1px;
-	background-color: #f4e219;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	border: 2px solid rgb(102, 102, 102);
+	background-color: transparent;
 	margin-right: 20px;
 	margin-bottom: 20px;
 	text-align: center;
 	vertical-align: middle;
 	cursor: pointer;
 	position: relative;
+	color: rgb(102, 102, 102);
 }
 
 ul.selectedSchools li.del {
-	background-color: rgb(86, 247, 199);
+	border-color: #fff;
+	color: #fff;
+}
+
+ul.selectedSchools li.del span {
+	color: rgb(102, 102, 102);
 }
 
 ul.selectedSchools li span {
@@ -53,4 +99,17 @@ ul.selectedSchools li.del span {
 	top: -9px;
 	left: -10px;
 	font-size: 20px;
+}
+
+.selbox {
+	position: relative;
+	top: 50px;
+	left: 100px;
+}
+.selbox ul {
+	list-style: none;
+}
+.selbox ul li {
+	display: inline-block;
+	margin-right: 100px;
 }

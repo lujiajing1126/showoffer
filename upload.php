@@ -5,7 +5,7 @@ RennAppClient::auth();
 $client = RennAppClient::getRennClient();
 $accessToken = new AccessToken(TokenType::Bearer, $_SESSION["access_token"], null);
 $client->authWithToken($accessToken);
-$user_service = $client->getUserService();
+//$user_service = $client->getUserService();
 isset($_GET["schools"]) && $schools = $_GET["schools"];
 isset($_GET["name"]) && $name = $_GET["name"];
 isset($_SESSION["SACH_USER_NAME"]) && $name = $_SESSION["SACH_USER_NAME"];
@@ -22,5 +22,6 @@ try  {
 }
 catch(Exception $e)  {
 	echo $e->getMessage();
+	die("上传失败");
 }
 echo "上传成功~";

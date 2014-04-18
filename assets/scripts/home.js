@@ -55,12 +55,16 @@ $(function() {
 	    selecteds.splice(_delPos,1);
 	    render();
     });
-    $('button.submit').click(function(){
+    $('.submit').click(function(){
     	var query = [],query_string='';
     	$.each(selecteds,function(k,v){
 	    	query.push(v[1]);
     	});
-    	query_string = query.join('-');
-		top.location = "http://apps.renren.com/showoffer/preview.php?schools="+query_string;
+    	if(query.length > 0) {
+	    	query_string = query.join('-');
+			top.location = "http://apps.renren.com/showoffer/preview.php?schools="+query_string;
+		} else {
+			alert("请先添加一个学校~");
+		}
     });
 });

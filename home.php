@@ -6,7 +6,7 @@ require_once("./appInit.php");
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<title>晒你的Offer~ - Home</title>
-	<link rel="stylesheet" href="./assets/stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="//libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="./assets/stylesheets/home.css">
 </head>
@@ -27,15 +27,22 @@ require_once("./appInit.php");
 			}
 		?>
 		<h4>
-		<?php 
-			echo "你好，".$user['name'].",欢迎使用留学党晒Offer~";
+		<?php
+			echo "你好, ".(isset($user['name'])?$user['name']:'来宾').", 欢迎使用留学党晒Offer~";
 		?></h4>
+		<div class="submit">
+			<span>生成我的Offer墙</span>
+		</div>
 		<div id="mySchools">
-			<h5>我拿到了这些学校的Offer：</h5>
 			<ul class="selectedSchools"></ul>
 		</div>
 		<div id="schools">
-			<div id="tabs">
+			<div class="selbox">
+				<ul>
+					<li><span>综合性大学</span></li><li><span>文理学院</span></li>
+				</ul>
+			</div>
+			<!--<div id="tabs">
 			  <ul>
 			    <li><a href="#tabs-1">1~10</a></li>
 			    <li><a href="#tabs-2">11~20</a></li>
@@ -63,10 +70,10 @@ require_once("./appInit.php");
 			  	<div></div>
 			  </div>
 			</div>
+			-->
 		</div>
-		<button class="btn btn-primary submit">生成Offer~</button>
 	</div>
-	<script src="./assets/scripts/lib/jquery/jquery.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="./assets/scripts/home.js"></script>
 </body>

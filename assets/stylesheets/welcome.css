@@ -5,4 +5,40 @@
 body {
 	width: 800px;
 	height: 600px;
+	background-image: url('../images/welcome_bg.jpg');
+}
+
+#login {
+	position: absolute;
+	left: 300px;
+	top: 300px;
+	cursor: pointer;
+	width: 200px;
+	height: 50px;
+	border: 2px solid rgb(102, 102, 102);
+	font-size: 16px;
+	text-align: center;
+	vertical-align: middle;
+	color: rgb(102, 102, 102);
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-moz-transition: border-color .26s,color .26s;
+	-o-transition: border-color .26s,color .26s;
+	transition: border-color .26s,color .26s;
+}
+
+#login:hover {
+	border-color: #fff;
+	color: #fff;
+}
+
+#login span {
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 50px;
+	font-size: 25px;
+	font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
+	color: inherit;
 }
