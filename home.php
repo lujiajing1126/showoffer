@@ -39,17 +39,18 @@ require_once("./appInit.php");
 		<div id="schools">
 			<div class="selbox">
 				<ul>
-					<li><span>综合性大学</span></li><li><span>文理学院</span></li>
+					<li class="univ selected"><span>综合性大学</span></li>
+					<li class="college"><span>文理学院</span></li>
 				</ul>
 			</div>
-			<!--<div id="tabs">
+			<div id="tabs" class="tabs univ-rank">
 			  <ul>
-			    <li><a href="#tabs-1">1~10</a></li>
-			    <li><a href="#tabs-2">11~20</a></li>
-			    <li><a href="#tabs-3">21~30</a></li>
-			    <li><a href="#tabs-4">31~40</a></li>
-			    <li><a href="#tabs-5">41~50</a></li>
-			    <li><a href="#tabs-6">51~60</a></li>
+			    <li><a href="#tabs-1">1-10</a></li>
+			    <li><a href="#tabs-2">12-20</a></li>
+			    <li><a href="#tabs-3">23-30</a></li>
+			    <li><a href="#tabs-4">31-39</a></li>
+			    <li><a href="#tabs-5">41-49</a></li>
+			    <li><a href="#tabs-6">52-60</a></li>
 			  </ul>
 			  <div class="selectSchools" id="tabs-1">
 			    <div></div>
@@ -70,7 +71,34 @@ require_once("./appInit.php");
 			  	<div></div>
 			  </div>
 			</div>
-			-->
+			<div id="tabs2" class="tabs college-rank">
+			  <ul>
+			    <li><a href="#tabs-1">1-9</a></li>
+			    <li><a href="#tabs-2">12-20</a></li>
+			    <li><a href="#tabs-3">22-30</a></li>
+			    <li><a href="#tabs-4">31-38</a></li>
+			    <li><a href="#tabs-5">41-50</a></li>
+			    <li><a href="#tabs-6">52-59</a></li>
+			  </ul>
+			  <div class="selectSchools" id="tabs-1">
+			    <div></div>
+			  </div>
+			  <div class="selectSchools" id="tabs-2">
+			  	<div></div>
+			  </div>
+			  <div class="selectSchools" id="tabs-3">
+			  	<div></div>
+			  </div>
+			  <div class="selectSchools" id="tabs-4">
+			  	<div></div>
+			  </div>
+			  <div class="selectSchools" id="tabs-5">
+			  	<div></div>
+			  </div>
+			  <div class="selectSchools" id="tabs-6">
+			  	<div></div>
+			  </div>
+			</div>
 		</div>
 	</div>
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>

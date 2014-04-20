@@ -6,6 +6,7 @@ body {
 	width: 800px;
 	height: 600px;
 	background-image: url('../images/home_bg.jpg');
+	background-repeat: no-repeat;
 }
 
 h4 {
@@ -45,6 +46,8 @@ h4 {
 }
 .selectSchools a {
 	margin-right: 50px;
+	cursor: pointer;
+	color: rgb(102,102,102);
 }
 .selectSchools a:hover {
 	text-decoration: underline;
@@ -103,13 +106,99 @@ ul.selectedSchools li.del span {
 
 .selbox {
 	position: relative;
-	top: 50px;
-	left: 100px;
+	top: 30px;
+	left: 40px;
+	width: 300px;
+	height: 30px;
 }
 .selbox ul {
 	list-style: none;
+	height: 100%;
+	margin-bottom: 0px;
 }
 .selbox ul li {
+	height: 30px;
+	vertical-align: middle;
 	display: inline-block;
-	margin-right: 100px;
+	margin-right: 80px;
+	font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
+	cursor: pointer;
+	color: rgb(102, 102, 102);
+}
+.selbox ul li:hover {
+	color: #fff;
+}
+.selbox ul li span {
+	vertical-align: middle;
+}
+.selbox ul li.selected {
+	color: #fff;
+}
+
+div#schools {
+	position: relative;
+}
+
+/* Univ Tab */
+div#tabs {
+	display: none;
+	position: relative;
+	top: 30px;
+	left: 20px;
+	background-color: transparent;
+	border-width: 0px;
+	background-image: none;
+	color: rgb(102, 102, 102)
+}
+
+div#tabs ul.ui-tabs-nav {
+	background-color: transparent;
+	background-image: none;
+	border-width: 0px;
+}
+div#tabs ul.ui-tabs-nav .ui-state-default {
+	background-color: transparent;
+	background-image: none;
+	color: rgb(102, 102, 102);
+	border-width: 0px;
+	cursor: pointer;
+}
+div#tabs ul.ui-tabs-nav li.ui-state-active a.ui-tabs-anchor {
+	color: #fff;
+}
+div#tabs ul.ui-tabs-nav li.ui-state-hover a {
+	cursor: pointer;
+	color: #fff;
+}
+
+/* College Tab */
+div#tabs2 {
+	display: none;
+	position: relative;
+	top: 30px;
+	left: 20px;
+	background-color: transparent;
+	border-width: 0px;
+	background-image: none;
+	color: rgb(102, 102, 102)
+}
+
+div#tabs2 ul.ui-tabs-nav {
+	background-color: transparent;
+	background-image: none;
+	border-width: 0px;
+}
+div#tabs2 ul.ui-tabs-nav .ui-state-default {
+	background-color: transparent;
+	background-image: none;
+	color: rgb(102, 102, 102);
+	border-width: 0px;
+	cursor: pointer;
+}
+div#tabs2 ul.ui-tabs-nav li.ui-state-active a.ui-tabs-anchor {
+	color: #fff;
+}
+div#tabs2 ul.ui-tabs-nav li.ui-state-hover a {
+	cursor: pointer;
+	color: #fff;
 }

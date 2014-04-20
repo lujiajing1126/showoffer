@@ -13,22 +13,30 @@ $(function() {
                 for(var i=0;i<6;i++)  {
 	                $.each(data[i],function(k,v){
 	                	var num = i+1;
-		                $('#tabs-'+num+' div').append("<a rank='"+v[1]+"'>"+v[0]+"</a>");
+		                $('div#tabs #tabs-'+num+' div').append("<a rank='"+v[1]+"'>"+v[0]+"</a>");
 	                });
                 }
+                for(var i=6;i<12;i++)  {
+					$.each(data[i],function(k,v){
+	                	var num = i+1-6;
+		                $('div#tabs2 #tabs-'+ num +' div').append("<a rank='"+v[1]+"'>"+v[0]+"</a>");
+	                });
+				}
             });
         },isexisted = function(data,key) {
 	        re = new RegExp(key,[""])
 			return (data.toString().replace(re,"┢").replace(/[^,┢]/g,"")).indexOf("┢")
-        }, htmlentities = function(str) {
-        	var r = "";
-		    for( i=0; i<str.length; i++ ) {
-		    	temp = str.charCodeAt(i);
-		    	r += "&#"+temp+";";
-		    }
-		    return r;
-		 };
+        }, renderInit = function() {
+	        var _schoolsType = $('.selbox ul').find('li').filter(".selected").attr("class").split(" ")[0];
+	        //console.log(_schoolsType);
+	        $('.tabs.'+ _schoolsType + '-rank').siblings('.tabs').hide('fast',function(){
+		        $('.tabs.'+ _schoolsType + '-rank').show('fast');
+	        });     	
+        };
     $("#tabs").tabs({
+        event: "mouseover"
+    });
+    $("#tabs2").tabs({
         event: "mouseover"
     });
     $(document).on('click', 'ul.selectedSchools li', function() {
@@ -37,6 +45,16 @@ $(function() {
     });
     init();
     render();
+    renderInit();
+    $(document).on('click.univ','.selbox ul li',function(){
+	    var $this = $(this);
+	    if($this.hasClass(".selected")) return;
+	    if($this.siblings('.selected').length > 0) {
+			$this.siblings('.selected').removeClass('selected');
+	    }
+	    $this.addClass('selected');
+	    renderInit();
+    });
     $(document).on('click.add','div.selectSchools div a',function(){
 	    var $this = $(this),_name = $this.html(),_rank = $this.attr("rank"),result = isexisted(selecteds,_name);
 	    if(selecteds.length < 10) {
