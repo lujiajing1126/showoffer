@@ -23,7 +23,8 @@ require_once("./appInit.php");
 				$_SESSION["SACH_USER_NAME"] = $user['name'];
 			}
 			catch(Exception $e)  {
-				echo $e->getMessage();
+				if(defined("DEBUG"))
+					echo $e->getMessage();
 			}
 		?>
 		<h4>

@@ -1,4 +1,7 @@
 <?php
+if(!defined("APP_PATH")) {
+	die("Invalid Request");
+}
 class Offer {
 	private $width = 1200;
 	private $height = 800;
@@ -53,7 +56,7 @@ class Offer {
 		}
 	}
 	private function addname() {
-		imagettftext($this->img, 20, 0, 20, 35, $this->color, $this->font_path_zhcn, $this->username."的Offer墙");
+		imagettftext($this->img, 20, 0, 20, 35, $this->color, $this->font_path_zhcn, $this->username." 的 Offer 墙");
 	}
 	public function render_images() {
 		foreach($this->logos as $k => $v) {

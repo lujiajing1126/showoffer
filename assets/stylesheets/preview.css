@@ -2,3 +2,41 @@
 	padding: 0px;
 	margin: 0px;
 }
+
+body{
+	width: 800px;
+	height: 600px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	background-color: rgb(136, 200, 233);
+}
+
+a {
+	border: 2px solid rgb(102,102,102);
+	position: absolute;
+	color: rgb(102,102,102);
+	top: 10px;
+	left: 630px;
+	width: 160px;
+	height: 30px;
+	font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', 微软雅黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 30px;
+	-moz-transition: border-color .26s,color .26s;
+	-o-transition: border-color .26s,color .26s;
+	transition: border-color .26s,color .26s;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+a:hover {
+	border-color: #fff;
+	color: #fff;
+}
+img {
+	position: absolute;
+	top: 67px;
+}

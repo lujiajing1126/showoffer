@@ -6,13 +6,11 @@ $client = RennAppClient::getRennClient();
 $accessToken = new AccessToken(TokenType::Bearer, $_SESSION["access_token"], null);
 $client->authWithToken($accessToken);
 //$user_service = $client->getUserService();
+$status = true;
 isset($_GET["schools"]) && $schools = $_GET["schools"];
-isset($_GET["name"]) && $name = $_GET["name"];
+isset($_GET["name"]) && $name = urldecode($_GET["name"]);
 isset($_SESSION["SACH_USER_NAME"]) && $name = $_SESSION["SACH_USER_NAME"];
-$location = "Shanghai/SACH/mysach.com";
-$album_description = "留学党晒Offer~";
-$photo_description = "快来围观！我录取了这些学校~你们也来晒一晒吧~http://goo.gl/WN05pH";
-$name = "留学党晒Offer应用相册";
+$photo_description = "快来围观！我录取了这些学校~你们也来晒一晒吧~http://t.cn/8sjm8uE";
 $url_build = "http://app.mysach.com/showoffer/generate.php?name=".$name."&schools=".$schools;
 try  {
 	//$user = $user_service->getUserLogin();
@@ -21,7 +19,29 @@ try  {
 	$photo = $client->getPhotoService()->uploadPhoto(null, $photo_description,$url_build);
 }
 catch(Exception $e)  {
-	echo $e->getMessage();
-	die("上传失败");
+	if(defined("DEBUG")) {
+		echo $e->getMessage();
+	}
+	$status = false;
 }
-echo "上传成功~";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uploading...</title>
+	<link rel="stylesheet" href="./assets/stylesheets/upload.css">
+</head>
+<body>
+	<?php
+	if($status) {
+	?>
+	<img src="./assets/images/upload_successfully.jpg" alt="上传成功">
+	<?php
+	} else {
+	?>
+	<img src="./assets/images/upload_failed.jpg" alt="上传失败">
+	<?php
+	}
+	?>
+</body>
+</html>

@@ -1,4 +1,7 @@
 <?php
+if(!defined("APP_PATH")) {
+	die("Invalid Request");
+}
 function imagettftextjustified(&$image, $size, $angle, $left, $top, $color, $font, $text, $max_width, $minspacing=3,$linespacing=1)  {
 	$wordwidth = array();
 	$linewidth = array();

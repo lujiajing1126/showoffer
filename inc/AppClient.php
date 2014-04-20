@@ -1,4 +1,7 @@
 <?php
+if(!defined("APP_PATH")) {
+	die("Invalid Request");
+}
 	class RennAppClient  {
 		const APP_ID = 266551;
 		const API_KEY = "730b7243af664b169613df7d71ebcf17";
