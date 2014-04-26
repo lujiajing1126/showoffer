@@ -31,10 +31,12 @@ a {
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+	cursor: pointer;
 }
 a:hover {
 	border-color: #fff;
 	color: #fff;
+	text-decoration: none;
 }
 img {
 	position: absolute;
